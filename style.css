@@ -230,21 +230,29 @@ footer img {
 }
 
 @media (max-width: 580px) {
-  main .container{
+  main .container {
     flex-direction: column;
     text-align: center;
   }
 
-  main img{
+  main img {
     order: -1;
     margin: auto;
   }
 
-  main .skills{
+  .skills {
     flex-direction: column;
   }
 
-  main .skill {
+  .skill {
+    margin: 2rem;
+  }
+
+  .itens-projeto {
+    flex-direction: column;
+  }
+
+  .projeto {
     margin: 2rem;
   }
 }
