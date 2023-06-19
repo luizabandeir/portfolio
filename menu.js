@@ -2,7 +2,7 @@ let show = true
 
 const menuSection = document.querySelector('.menu-section')
 const menuToggle = menuSection.querySelector('.menu-toggle')
-const link = menuSection.querySelector('a')
+const menuLinks = Array.from(document.getElementsByClassName('menu-links'))
 
 menuToggle.addEventListener('click', () => {
   document.body.style.overflow = show ? 'hidden' : 'initial'
@@ -11,13 +11,23 @@ menuToggle.addEventListener('click', () => {
   show = !show
 })
 
+menuLinks.forEach((link) => {
+  link.addEventListener('click', function (event) {
+    event.preventDefault() // Impedir o comportamento padrão do link
 
+    if (menuSection.classList.contains('on')) {
+      menuSection.classList.remove('on')
+      document.body.style.overflow = 'initial'
 
-/*
-$('.menu-toggle').on('click', function() {
-$('menu-section').addClass('open');
-});
+      const targetSectionId = this.getAttribute('href')
 
-$('menu-section a').on("click", function() {
-  $('menu-section').removeClass('open');
-});*/
+      const targetSection = document.querySelector(targetSectionId)
+      const targetSectionPosition = targetSection.offsetTop
+
+      window.scrollTo({
+        top: targetSectionPosition,
+        behavior: 'smooth'
+      })
+    }
+  })
+})
