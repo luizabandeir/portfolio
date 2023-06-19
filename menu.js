@@ -11,23 +11,25 @@ menuToggle.addEventListener('click', () => {
   show = !show
 })
 
-menuLinks.forEach((link) => {
-  link.addEventListener('click', function (event) {
-    event.preventDefault() // Impedir o comportamento padrão do link
+if (menuLinks) {
+  menuLinks.forEach((link) => {
+    link.addEventListener('click', function (event) {
+      event.preventDefault() // Impedir o comportamento padrão do link
 
-    if (menuSection.classList.contains('on')) {
-      menuSection.classList.remove('on')
-      document.body.style.overflow = 'initial'
+      if (menuSection.classList.contains('on')) {
+        menuSection.classList.remove('on')
+        document.body.style.overflow = 'initial'
 
-      const targetSectionId = this.getAttribute('href')
+        const targetSectionId = this.getAttribute('href')
 
-      const targetSection = document.querySelector(targetSectionId)
-      const targetSectionPosition = targetSection.offsetTop
+        const targetSection = document.querySelector(targetSectionId)
+        const targetSectionPosition = targetSection.offsetTop
 
-      window.scrollTo({
-        top: targetSectionPosition,
-        behavior: 'smooth'
-      })
-    }
+        window.scrollTo({
+          top: targetSectionPosition,
+          behavior: 'smooth'
+        })
+      }
+    })
   })
-})
+}
