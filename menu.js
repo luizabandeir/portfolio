@@ -2,7 +2,7 @@ let show = true
 
 const menuSection = document.querySelector('.menu-section')
 const menuToggle = menuSection.querySelector('.menu-toggle')
-const menuNav = document.querySelector('.menu-section a')
+const link = menuSection.querySelector('a')
 
 menuToggle.addEventListener('click', () => {
   document.body.style.overflow = show ? 'hidden' : 'initial'
@@ -11,13 +11,13 @@ menuToggle.addEventListener('click', () => {
   show = !show
 })
 
-menuNav.addEventListener('click', () => {
-  
-})
-
-$('.menu-section a').on('click', function () {
 
 
-  menuSection.classList.toggle('on', show)
-  show = !show
-})
+/*
+$('.menu-toggle').on('click', function() {
+$('menu-section').addClass('open');
+});
+
+$('menu-section a').on("click", function() {
+  $('menu-section').removeClass('open');
+});*/
